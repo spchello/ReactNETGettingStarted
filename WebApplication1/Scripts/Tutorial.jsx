@@ -54,7 +54,7 @@ var CommentForm = React.createClass({
         if (!text || !author) {
             return;
         }
-        // TODO: send request to the server
+
         this.props.onCommentSubmit({ Author: author, Text: text });
         this.refs.author.value = '';
         this.refs.text.value = '';
@@ -86,7 +86,6 @@ var CommentBox = React.createClass({
         var newComments = comments.concat([comment]);
         this.setState({ data: newComments });
 
-        // TODO: submit to the server and refresh the list
         var data = new FormData();
         data.append('Author', comment.Author);
         data.append('Text', comment.Text);
@@ -100,7 +99,6 @@ var CommentBox = React.createClass({
     },
     getInitialState: function () {
         return { data: [] };
-        //return { data: this.props.initialData };
     },
     componentDidMount: function () {
         this.loadCommentsFromServer();

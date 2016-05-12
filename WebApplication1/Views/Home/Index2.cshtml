@@ -8,25 +8,20 @@
     <title>Hello React Server-side rendering</title>
 </head>
 <body>
-    
 
-
-              @Html.React("CommentBox", new
-        {
-            initialData = Model,
-            url = Url.Action("Comments"),
-            submitUrl = Url.Action("AddComment"),
-            pollInterval = 2000,
-        })
+    @Html.React("CommentBox", new
+         {
+             initialData = Model,
+             url = Url.Action("Comments"),
+             submitUrl = Url.Action("AddComment"),
+             pollInterval = 2000,
+         })
 
     <script src="https://fb.me/react-15.0.1.js"></script>
     <script src="https://fb.me/react-dom-15.0.1.js"></script>
-    <script src="@Url.Content("~/scripts/showdown.js")"></script>
-    <script src="@Url.Content("~/scripts/TutorialServerSideRendering.jsx")"></script>
-    
-        @Html.ReactInitJavaScript()
-
-    
+    @* Bundling and minification *@
+    @Scripts.Render("~/bundles/ServerSideRendering")
+    @Html.ReactInitJavaScript()
 
 </body>
 </html>
