@@ -1,0 +1,39 @@
+﻿@*
+    @model IEnumerable<WebApplication1.Models.CommentModel>
+*@
+
+@{
+    Layout = null;
+}
+<html>
+<head>
+    <title>Hello React</title>
+</head>
+<body>
+    @*
+
+
+              @Html.React("CommentBox", new
+        {
+            initialData = Model,
+            url = Url.Action("Comments"),
+            submitUrl = Url.Action("AddComment"),
+            pollInterval = 2000,
+        })
+
+    *@
+
+
+    <div id="content"></div>
+
+    <script src="https://fb.me/react-15.0.1.js"></script>
+    <script src="https://fb.me/react-dom-15.0.1.js"></script>
+    <script src="@Url.Content("~/scripts/showdown.js")"></script>
+    <script src="@Url.Content("~/scripts/Tutorial.jsx")"></script>
+    @*
+        @Html.ReactInitJavaScript()
+
+    *@
+
+</body>
+</html>
